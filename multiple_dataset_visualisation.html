@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rectangle Data Visualization</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
         <style>
             body {
@@ -235,7 +234,6 @@
     </head>
     <body>
         <div class="container">
-            <h1>Rectangle Data Visualization</h1>
 
             <div class="chart-container">
                 <div id="chart" style="position: relative;">
@@ -264,10 +262,6 @@
                         <div class="legend-item">
                             <div class="legend-color" style="background: #F24236;"></div>
                             <span>Wild Chat</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #28A745;"></div>
-                            <span>hierarchical</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color" style="background: #FFC107;"></div>
@@ -493,7 +487,6 @@
                             <strong>Height:</strong> ${(d.coords[1][1] - d.coords[0][1]).toFixed(3)}<br>
                             <strong>Volume:</strong> ${d.volume.toFixed(6)}<br>
                             <strong>Prompt:</strong> ${d.prompt.replace(/</g, '&lt;').replace(/>/g, '&gt;')}<br>
-                            <strong>Score:</strong> ${d.score}
                         `)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 10) + "px");
