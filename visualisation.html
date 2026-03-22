@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Prompt2Box Visualisations">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualisations - Prompt2Box</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .viz-iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      display: none;
+    }
+    .viz-iframe.active {
+      display: block;
+    }
+    .viz-tab.button.is-active {
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    .viz-desc {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div style="padding: 1rem;">
+  <a href="index.html" class="button is-rounded">← Back</a>
+</div>
+
+<section class="hero" style="padding-bottom: 0;">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Visualisations</h1>
+
+          <div class="publication-links" style="justify-content: center; display: flex; gap: 2rem;">
+            <span class="link-block" style="flex: 1;">
+              <a href="#" class="external-link button is-large is-rounded is-dark viz-tab is-active" data-viz="visualisation_main">
+                <span class="icon">
+                    <i class="fas fa-th-large"></i>
+                </span>
+                <span>Box Visualisation</span>
+              </a>
+            </span>
+            <span class="link-block" style="flex: 1;">
+              <a href="#" class="external-link button is-large is-rounded is-dark viz-tab" data-viz="hierarchical_clustering">
+                <span class="icon">
+                    <i class="fas fa-sitemap"></i>
+                </span>
+                <span>Hierarchical Clustering</span>
+              </a>
+            </span>
+            <span class="link-block" style="flex: 1;">
+              <a href="#" class="external-link button is-large is-rounded is-dark viz-tab" data-viz="multiple_dataset_visualisation">
+                <span class="icon">
+                    <i class="fas fa-layer-group"></i>
+                </span>
+                <span>Multi-Dataset Comparison</span>
+              </a>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div id="desc-visualisation_main" class="viz-desc">
+      <h3 class="title is-4">Box Visualisation</h3>
+      <p>Visualisation of 500 prompts from UltraFeedback using Box-SNE. Use the slider to show less prompts. Boxes with higher volumes are more transparent</p>
+    </div>
+    <div id="desc-hierarchical_clustering" class="viz-desc" style="display: none;">
+      <h3 class="title is-4">Hierarchical Clustering</h3>
+      <p>This shows 500 UltraFeedback prompts being hierarchically clustered based on the box join volume. .</p>
+    </div>
+    <div id="desc-multiple_dataset_visualisation" class="viz-desc" style="display: none;">
+      <h3 class="title is-4">Multi-Dataset Comparison</h3>
+      <p>Compare prompts across multiple datasets side-by-side. One can easily see the specificity of wildbench in it.</p>
+    </div>
+
+    <iframe id="viz-visualisation_main" class="viz-iframe active" src="visualisation_main.html"></iframe>
+    <iframe id="viz-hierarchical_clustering" class="viz-iframe" src="hierarchical_clustering.html"></iframe>
+    <iframe id="viz-multiple_dataset_visualisation" class="viz-iframe" src="multiple_dataset_visualisation.html"></iframe>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.viz-tab').forEach(tab => {
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      const viz = this.dataset.viz;
+      
+      document.querySelectorAll('.viz-tab').forEach(t => t.classList.remove('is-active'));
+      this.classList.add('is-active');
+      
+      document.querySelectorAll('.viz-iframe').forEach(iframe => iframe.classList.remove('active'));
+      document.getElementById('viz-' + viz).classList.add('active');
+      
+      document.querySelectorAll('.viz-desc').forEach(desc => desc.style.display = 'none');
+      document.getElementById('desc-' + viz).style.display = 'block';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Prompt2Box: Uncovering Entailment Structure among LLM Prompts">
+  <meta name="keywords" content="Box Embeddings">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt2Box: Uncovering Entailment Structure among LLM Prompts</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Prompt2Box: Uncovering Entailment Structure among LLM Prompts</h1>
+
+          <div class="is-size-5 publication-authors">
+                    <span class="author-block">
+                      <a href="https://www.linkedin.com/in/neeladri-bhuiya-211204122/">Neeladri Bhuiya</a><sup>1</sup>,</span>
+                    <span class="author-block">
+                      <a href="https://ssdasgupta.github.io/">Shib Sankar Dasgupta</a><sup>1</sup>,</span>
+                    <span class="author-block">
+                      <a href="https://people.cs.umass.edu/~mccallum/">Andrew McCallum</a><sup>1</sup>,
+                    </span>
+                    <span class="author-block">
+                      <a href="https://ken77921.github.io/">Haw-Shiuan Chang</a><sup>1</sup>,
+                    </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>University of Massachusetts, Amherst</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">ICML 2026 Conference Submission</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://www.arxiv.org/pdf/2510.17947"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="visualisation.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-chart-bar"></i>
+                  </span>
+                  <span>Visualisation</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="github.com"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-chart-bar"></i>
+                  </span>
+                  <span>Github</span>
+                </a>
+              </span>
+            </div>
+
+            <!-- NEW: Code/Dataset coming soon notice (added near the top) -->
+<div class="notification" style="
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2fd, #e0f7fa);
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin-top: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+">
+  <strong style="font-size: 1.1em; display: block; color: #0369a1;">Code &amp; Dataset — Coming Soon</strong>
+  <span style="display: block; font-size: 0.9em; color: #334155; margin-top: 6px;">
+    We plan to release the code and dataset soon — check this page for updates.
+  </span>
+</div>
+            <!-- /NEW -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="
+    /* padding: 10px 10px */
+    ">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>To discover the weaknesses of LLMs, researchers often embed prompts into a vector space and cluster them to extract insightful patterns. However, vector embeddings primarily capture topical similarity. As a result, prompts that share a topic but differ in specificity, and consequently in difficulty, are often represented similarly, making fine-grained weakness analysis difficult. To address this limitation, we propose Prompt2Box, which embeds prompts into a box embedding space using a trained encoder. The encoder, trained on existing and synthesized datasets, outputs box embeddings that capture not only semantic similarity but also specificity relations between prompts (e.g., “writing an adventure story” is more specific than “writing a story”). We further develop a novel dimension reduction technique for box embeddings to facilitate dataset visualization and comparison. Our experiments demonstrate that box embeddings consistently capture prompt specificity better than vector baselines. On the downstream task of creating hierarchical clustering trees for 17 LLMs from the UltraFeedback dataset, Prompt2Box can identify 8.9% more LLM weaknesses than vector baselines and achieves an approximately 33% stronger correlation between hierarchical depth and instruction specificity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{bhuiya2025plagueplugandplayframeworklifelong,
+      title={PLAGUE: Plug-and-play framework for Lifelong Adaptive Generation of Multi-turn Exploits}, 
+      author={Neeladri Bhuiya and Madhav Aggarwal and Diptanshu Purwar},
+      year={2025},
+      eprint={2510.17947},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2510.17947}, 
+}
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://openreview.net/pdf?id=05hNleYOcG">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website template is borrowed from the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies project page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
